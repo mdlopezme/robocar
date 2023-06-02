@@ -1,4 +1,6 @@
 from setuptools import find_packages, setup
+import os
+from glob import glob
 
 package_name = 'robocar'
 
@@ -9,6 +11,8 @@ setup(
     data_files=[
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
+            (os.path.join('share', package_name, 'launch'), glob('launch/*.launch.py')),
+            (os.path.join('share', package_name, 'config'), glob('config/*.yaml')),
         ('share/' + package_name, ['package.xml']),
     ],
     install_requires=['setuptools'],
@@ -20,6 +24,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'helloworld_node = robocar.helloworld_node:main',
         ],
     },
 )
