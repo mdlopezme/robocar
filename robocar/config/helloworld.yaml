@@ -1,0 +1,3 @@
+helloworld_node:
+  ros__parameters:
+    message: "Hello World! This is a parameter from the config file."
